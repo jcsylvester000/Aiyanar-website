@@ -1,0 +1,27 @@
+# Next.js on Netlify needs the Next.js Runtime (OpenNext adapter). Declared explicitly because
+# auto-detection can be skipped, which serves a bare 404 on every page (agency skill W20).
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Environment variables (Site configuration > Environment variables). No secrets are needed in Phase 1.
+#   NEXT_PUBLIC_SITE_URL  https://aiyanar.com once the domain is connected (optional before that)
+#   ALLOW_INDEXING        true ONLY on the real domain; previews and *.netlify.app stay noindex
+#   NEXT_PUBLIC_GTM_ID    Google Tag Manager container; leave empty until the resort supplies it (B10)
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/brand/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
