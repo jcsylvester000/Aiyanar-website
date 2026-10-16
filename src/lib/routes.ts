@@ -1,3 +1,4 @@
+import { publishedPeople } from "@/content/people";
 import { currentAndUpcomingOffers } from "@/content/offers";
 
 /**
@@ -31,7 +32,13 @@ staticRoutes.push(
   { path: "/experiences/", lastModified: "2026-10-16", priority: 0.8 },
   ...exp.map((s) => ({ path: `/experiences/${s}/`, lastModified: "2026-10-16", priority: 0.6 })),
   { path: "/offers/", lastModified: "2026-10-16", priority: 0.8 },
+  ...["/anilao/", "/anilao/getting-there/", "/anilao/weather-by-month/", "/anilao/marine-life/"].map((p, i) => ({ path: p, lastModified: "2026-10-16", priority: i ? 0.7 : 0.8 })),
+  ...["/about/", "/about/our-story/", "/about/team/", "/about/ocean-conservation/", "/about/awards-and-press/", "/about/reviews/"].map((p) => ({ path: p, lastModified: "2026-10-16", priority: 0.6 })),
+  { path: "/gallery/", lastModified: "2026-10-16", priority: 0.6 },
 );
+
+/** Friends of Aiyanar joins the sitemap only once someone has consented to be named. */
+if (publishedPeople("friend").length) staticRoutes.push({ path: "/about/friends-of-aiyanar/", lastModified: "2026-10-16", priority: 0.5 });
 
 /** Offer pages come and go with their dates (FR-O1): only offers not yet expired are listed. */
 function offerRoutes(today = new Date().toISOString().slice(0, 10)): RouteEntry[] {
