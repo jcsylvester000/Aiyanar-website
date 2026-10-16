@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { mainNav, bookNow, heroRoutes } from "@/content/navigation";
+import { mainNav, bookNow, isHeroRoute } from "@/content/navigation";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
@@ -18,7 +18,7 @@ import { MobileMenu } from "./mobile-menu";
  */
 export function SiteHeader() {
   const pathname = usePathname() ?? "/";
-  const isHero = heroRoutes.includes(pathname);
+  const isHero = isHeroRoute(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [showBar, setShowBar] = useState(false);
 

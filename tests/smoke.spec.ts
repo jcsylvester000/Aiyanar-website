@@ -17,7 +17,7 @@ test("preview builds are noindex", async ({ page, request }) => {
 });
 
 test("legacy WordPress URLs redirect permanently to the new structure", async ({ request }) => {
-  for (const [from, to] of [["/resort/", "/stay/"], ["/contact-us/", "/contact/"], ["/aiyanar/", "/about/our-story/"]]) {
+  for (const [from, to] of [["/resort/", "/stay/"], ["/contact-us/", "/contact/"], ["/aiyanar/", "/about/our-story/"]] as const) {
     const res = await request.get(from, { maxRedirects: 0 });
     expect([301, 308], from).toContain(res.status());
     expect(res.headers()["location"], from).toContain(to);

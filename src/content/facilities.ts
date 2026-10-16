@@ -19,7 +19,7 @@ export type Facility = z.infer<typeof Facility>;
 const cat = "2026 catalog resort map";
 
 export const facilities: Facility[] = z.array(Facility).parse([
-  { slug: "casitas", mapNo: 1, name: "Casitas", code: "cyan", summary: "Sea-view rooms above the main building, sharing an ocean-view balcony.", image: null, verify: { source: cat, confirmed: true } },
+  { slug: "casitas", mapNo: 1, name: "Casitas", code: "cyan", summary: "Sea-view rooms above the main building, sharing an ocean-view balcony.", image: "resortBlueHour", verify: { source: cat, confirmed: true } },
   { slug: "suites-and-deluxe", mapNo: 2, name: "Suites & Deluxe", code: "orange", summary: "Two-storey block of Suites and Deluxe rooms, each with a private ocean-view balcony.", image: "roomsNight", verify: { source: cat, confirmed: true } },
   { slug: "clubhouse", mapNo: 3, name: "Clubhouse", code: "yellow", summary: "Open-air restaurant and lounge where meals are served, looking west over the bay.", image: "clubhouseSunset", verify: { source: cat, confirmed: true } },
   { slug: "dive-center", mapNo: 4, name: "Dive Center", code: "orange", summary: "PADI 5 Star dive centre with gear storage, briefing area, rinse tubs and the 18-station camera room.", image: "diveCentre", verify: { source: cat, confirmed: true } },
