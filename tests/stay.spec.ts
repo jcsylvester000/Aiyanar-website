@@ -27,14 +27,20 @@ test.describe("Stay section (P02–P07)", () => {
   });
 
   for (const r of ROOMS) {
-    test(`room page ${r.slug}: specs, booking box, HotelRoom JSON-LD, breadcrumbs`, async ({ page }) => {
+    test(`room page ${r.slug}: specs, booking box, HotelRoom JSON-LD, breadcrumbs`, async ({ page, isMobile }) => {
       const res = await page.goto(`/stay/${r.slug}/`);
       expect(res?.status()).toBe(200);
       await expect(page.locator("h1")).toHaveText(r.name);
       await expect(page.locator("#details dl").first()).toContainText(r.sqm);
-      const box = page.getByRole("complementary", { name: `Book the ${r.name}` });
-      await expect(box.getByRole("link", { name: "Check availability" })).toHaveAttribute("href", /aiyanarreservations\.com/);
-      await expect(box).toContainText(`Select ${r.name} on the next step`);
+      if (isMobile) {
+        // E1/R-03: phones book from the hero button; the room hint moves under it.
+        await expect(page.getByRole("link", { name: "Check this room" })).toHaveAttribute("href", /aiyanarreservations\.com/);
+        await expect(page.getByText(`Select ${r.name} on the next step.`).filter({ visible: true })).toHaveCount(1);
+      } else {
+        const box = page.getByRole("complementary", { name: `Book the ${r.name}` });
+        await expect(box.getByRole("link", { name: "Check availability" })).toHaveAttribute("href", /aiyanarreservations\.com/);
+        await expect(box).toContainText(`Select ${r.name} on the next step`);
+      }
       const ld = (await page.locator('script[type="application/ld+json"]').allTextContents()).map((t) => JSON.parse(t)).flat();
       const room = ld.find((d) => d["@type"] === "HotelRoom");
       expect(room.floorSize.value).toBe(Number.parseInt(r.sqm));

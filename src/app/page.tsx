@@ -89,9 +89,13 @@ export default function HomePage() {
             bar for sunset. About two and a half hours from Manila.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a className="btn btn-primary" href={bookingUrl()} rel="noopener" data-event="begin_checkout">
+            {/* Phones/tablets book here (inline card hidden below lg); desktop books in the card overlapping the hero. */}
+            <a className="btn btn-primary lg:hidden" href={bookingUrl()} rel="noopener" data-event="begin_checkout">
               Check availability
             </a>
+            <Link className="btn btn-ghost hidden lg:inline-flex" href="/stay/">
+              Explore rooms
+            </Link>
             <Link className="btn btn-ghost" href="/learn/">
               Learn to dive
             </Link>
@@ -104,7 +108,7 @@ export default function HomePage() {
       </section>
 
       {/* 3 · Booking bar */}
-      <section aria-label="Check availability" className="relative z-10 bg-sand pb-6 lg:-mt-24 lg:bg-transparent lg:pb-0">
+      <section aria-label="Check availability" className="relative z-10 hidden lg:-mt-24 lg:block">
         <div className="container-site">
           <div className="rounded-[var(--radius-card)] border border-line bg-white p-5 shadow-[var(--shadow-float)] lg:p-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:gap-8">
@@ -231,7 +235,7 @@ export default function HomePage() {
             <SectionHeading
               id="rooms-title"
               eyebrow="Stay"
-              title="Every room faces the sea"
+              title="Every room faces the sunset"
               intro={
                 <>
                   {factById("rooms-total").value.split(":")[0]} on a west-facing hillside. We’re honest about the hill: more steps, better sunsets.

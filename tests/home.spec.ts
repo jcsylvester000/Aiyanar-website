@@ -1,20 +1,21 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("homepage (BRD 2.3)", () => {
-  test("has the 13-section order: hero, booking, trust, journeys, edge, rooms, offers, surface, guests, guides, gallery", async ({ page }) => {
+  test("has the 13-section order: hero, booking, trust, journeys, edge, rooms, offers, surface, guests, guides, gallery", async ({ page, isMobile }) => {
     await page.goto("/");
     const h2 = await page.locator("main h2").allTextContents();
     expect(h2).toEqual([
       "Dive, learn, or do neither",
       "Your first breath, with a view.",
-      "Every room faces the sea",
+      "Every room faces the sunset",
       "Ways to make a weekend of it",
       "Anilao’s critters, up close",
       "What our guests say",
       "Know Anilao before you go",
       "Golden hour, every day",
     ]);
-    await expect(page.getByRole("region", { name: "Check availability" }).getByRole("search")).toBeVisible();
+    // E1/H-03: the inline booking card is desktop-only; phones book from the hero button and sticky bar.
+    if (!isMobile) await expect(page.getByRole("region", { name: "Check availability" }).getByRole("search")).toBeVisible();
     await expect(page.getByRole("region", { name: "Why guests trust us" })).toContainText("PADI 5 Star");
   });
 
@@ -27,7 +28,7 @@ test.describe("homepage (BRD 2.3)", () => {
 
   test("rooms link to their pages and show size, beds and price status", async ({ page }) => {
     await page.goto("/");
-    const rooms = page.getByRole("region", { name: "Every room faces the sea" });
+    const rooms = page.getByRole("region", { name: "Every room faces the sunset" });
     for (const [name, href, sqm] of [["Suite", "/stay/suite/", "35 sqm"], ["Deluxe", "/stay/deluxe/", "26 sqm"], ["Casita", "/stay/casita/", "33 sqm"]]) {
       const link = rooms.getByRole("link", { name, exact: true });
       await expect(link).toHaveAttribute("href", href);

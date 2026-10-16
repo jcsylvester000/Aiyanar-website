@@ -29,7 +29,7 @@ export const facts: Fact[] = z.array(Fact).parse([
   { id: "camera-room", group: "Diving", label: "Camera room", value: "Air-conditioned, 18 stations with individual air hoses and rinse tanks", verify: { source: `aiyanar.com/dive; ${cat}`, confirmed: true } },
   { id: "boats", group: "Diving", label: "Boats", value: "Three 27-ft, 150 HP dive speedboats and one 40-ft outrigger; up to 6 divers and 2 guides per speedboat", verify: { source: cat, confirmed: true } },
   { id: "dive-sites", group: "Diving", label: "Dive sites", value: "Almost 50 dive sites, 10 to 30 minutes by boat", verify: { source: `${cat}; Bluewater; Scuba Travel`, confirmed: true } },
-  { id: "water-temp", group: "Diving", label: "Water temperature", value: "26–29 °C", verify: { source: "Bluewater; Scuba Travel (2026-10-16)", confirmed: true } },
+  { id: "water-temp", group: "Diving", label: "Water temperature", value: "26–29°C", verify: { source: "Bluewater; Scuba Travel (2026-10-16)", confirmed: true } },
   { id: "season", group: "Diving", label: "Main season", value: "October to early June; best visibility November–December and April–May", verify: { source: "Bluewater; Scuba Travel (2026-10-16)", confirmed: true } },
   { id: "distance", group: "Getting here", label: "From Manila", value: "About 2.5 hours by road from Metro Manila (2–3 hours typical; longer on Friday nights)", verify: { source: "Bluewater; Blue Ribbon Divers (2026-03-10)", confirmed: true } },
   { id: "transfer", group: "Getting here", label: "Private van transfer", value: "₱11,000 per vehicle, round trip", verify: { source: "Hotels.com (2026-10-16)", confirmed: false, note: "Q12: confirm current price" } },

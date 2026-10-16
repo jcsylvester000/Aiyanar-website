@@ -114,14 +114,20 @@ export default function DivePage() {
 
       {macro ? (
         <section aria-labelledby="macro-title" className="section-y bg-cream">
-          <div className="container-site grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
-            <SectionHeading
-              id="macro-title"
-              eyebrow="For photographers"
-              title="Macro Weeks"
-              intro="Seven to eleven nights built around the camera room, daily boat dives and free nitrox, with a visiting guest pro on selected weeks."
-            />
-            <div className="max-w-md lg:justify-self-end"><OfferCard offer={macro} today={today} /></div>
+          <div className="container-site grid items-start gap-10 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-16">
+            <div className="lg:pt-6">
+              <SectionHeading
+                id="macro-title"
+                eyebrow="For photographers"
+                title="Macro Weeks"
+                intro="Seven to eleven nights built around the camera room, daily boat dives and free nitrox, with a visiting guest pro on selected weeks."
+              />
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href={`/offers/${macro.slug}/`} className="btn btn-primary">See Macro Weeks</Link>
+                <Link href="/dive/photographers/" className="btn btn-secondary">For photographers</Link>
+              </div>
+            </div>
+            <div className="flex"><OfferCard offer={macro} today={today} /></div>
           </div>
         </section>
       ) : null}

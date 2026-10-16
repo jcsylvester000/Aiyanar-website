@@ -66,10 +66,10 @@ export default function LearnPage() {
               <li key={p.slug}><Link href={`/learn/${p.slug}/`} className="btn btn-secondary">{p.title}</Link></li>
             ))}
           </ul>
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 flex flex-wrap justify-center gap-6">
             {learnPages.flatMap((p) =>
               courses.filter((c) => c.page === p.slug).map((c) => (
-                <li key={c.slug} className="reveal flex"><CourseCard course={c} href={`/learn/${p.slug}/#${c.slug}`} /></li>
+                <li key={c.slug} className="reveal flex basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc((100%-3rem)/3)]"><CourseCard course={c} href={`/learn/${p.slug}/#${c.slug}`} /></li>
               )),
             )}
           </ul>
@@ -94,8 +94,8 @@ export default function LearnPage() {
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_1.6fr]">
           <div>
             <SectionHeading id="faq-title" eyebrow="Questions" title="Nervous? Good. Ask us anything." />
-            <a href="https://www.padi.com/elearning" rel="noopener" target="_blank" className="btn btn-secondary mt-8">
-              PADI eLearning<span className="sr-only"> (opens in a new tab)</span>
+            <a href="https://www.padi.com/courses/open-water-diver" rel="noopener" target="_blank" className="btn btn-secondary mt-8">
+              PADI Open Water eLearning<span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
           <FaqList items={faqs.filter((f) => f.group === "Learning to dive")} />

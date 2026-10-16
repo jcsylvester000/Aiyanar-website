@@ -39,7 +39,7 @@ const Month = z.object({
 });
 export type Month = z.infer<typeof Month>;
 
-/** From Document 03 (season Oct–early Jun; best Nov–Dec, Apr–May; water 26–29 °C), Document 04 (~70% of cyclones Jul–Oct, PAGASA) and the BRD 1.5 calendar. */
+/** From Document 03 (season Oct–early Jun; best Nov–Dec, Apr–May; water 26–29°C), Document 04 (~70% of cyclones Jul–Oct, PAGASA) and the BRD 1.5 calendar. */
 export const months: Month[] = z.array(Month).parse([
   { month: "January", season: "Good", divers: "Cooler water and juvenile critters.", everyone: "New Year getaways; quieter weekdays." },
   { month: "February", season: "Good", divers: "Dry-season diving.", everyone: "Valentine’s weekends: book early." },

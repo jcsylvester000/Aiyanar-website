@@ -32,7 +32,7 @@ export const faqs: Faq[] = z.array(Faq).parse([
   { group: "Diving", q: "Do you have nitrox?", a: "Yes. Our own nitrox membrane blends up to 40%.", verify: { source: "2026 catalog", confirmed: true } },
   { group: "Diving", q: "What is the camera room like?", a: "Air-conditioned, with 18 stations, individual air hoses and camera rinse tanks.", verify: { source: "aiyanar.com/dive; 2026 catalog", confirmed: true } },
   { group: "Diving", q: "How many divers go on each boat?", a: "Up to six divers and two guides on each of our 27-ft dive speedboats.", verify: { source: "2026 catalog", confirmed: true } },
-  { group: "Diving", q: "When is the best time to dive Anilao?", a: "The main season runs from October to early June. Visibility is usually best in November–December and April–May; water is 26–29 °C.", verify: { source: "Bluewater; Scuba Travel", confirmed: true } },
+  { group: "Diving", q: "When is the best time to dive Anilao?", a: "The main season runs from October to early June. Visibility is usually best in November–December and April–May; water is 26–29°C.", verify: { source: "Bluewater; Scuba Travel", confirmed: true } },
   { group: "Diving", q: "Are there marine park fees?", a: "Yes. Anilao charges a marine park fee of about ₱400 per dive day.", verify: d("Bluewater (2026-10-16)", "Confirm current fee") },
   { group: "Food", q: "Can the kitchen handle dietary needs?", a: "Yes. Tell us about allergies or dietary needs when you book and the kitchen will plan around them.", verify: d("TripAdvisor Apr 2026 review") },
   { group: "Food", q: "Where are meals served?", a: "In the open-air clubhouse overlooking the bay. Drinks and sunset are at the Sundeck Bar.", verify: { source: "2026 catalog", confirmed: true } },

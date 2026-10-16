@@ -63,6 +63,7 @@ export default async function RoomPage({ params }: { params: Promise<{ room: str
       >
         <a href={bookingUrl()} rel="noopener" className="btn btn-primary" data-event="begin_checkout">Check this room</a>
         <a href="#details" className="btn btn-ghost">Room details</a>
+        <p className="basis-full text-sm text-white/85 lg:hidden">Select <strong className="font-medium text-white">{room.engineName}</strong> on the next step.</p>
       </PageHero>
 
       <section id="details" aria-labelledby="about-title" className="section-y scroll-mt-28">
@@ -97,7 +98,7 @@ export default async function RoomPage({ params }: { params: Promise<{ room: str
             ) : null}
           </div>
 
-          <aside aria-label={`Book the ${room.name}`} className="lg:sticky lg:top-28 lg:self-start">
+          <aside aria-label={`Book the ${room.name}`} className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
             <div className="rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-float)]">
               <p className="font-display text-2xl text-navy">{room.name}</p>
               <PriceFrom price={room.fromPrice} className="mt-1" />

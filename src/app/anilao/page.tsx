@@ -36,7 +36,7 @@ export default function AnilaoPage() {
 
       <section aria-label="Anilao facts" className="border-b border-line">
         <div className="container-site py-10">
-          <FactsStrip items={[["2.5 h", "by road from Metro Manila"], ["560+", "nudibranch species recorded"], ["26–29 °C", "water temperature"], ["Oct–Jun", "main dive season"]]} />
+          <FactsStrip items={[["2.5 h", "by road from Metro Manila"], ["560+", "nudibranch species recorded"], ["26–29°C", "water temperature"], ["Oct–Jun", "main dive season"]]} />
         </div>
       </section>
 
