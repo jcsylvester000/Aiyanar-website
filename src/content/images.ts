@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import type { ImageKey } from "./image-keys";
 import resortBlueHour from "@/assets/images/aiyanar-resort-blue-hour-anilao.jpg";
 import clubhouseSunset from "@/assets/images/aiyanar-clubhouse-sunset.jpg";
 import poolSunset from "@/assets/images/aiyanar-infinity-pool-sunset-anilao.jpg";
@@ -47,6 +48,6 @@ export const images = {
   padiClass: img(padiClass, "PADI dive class during a briefing at Aiyanar", "2025/03/P4A8468-1.jpg"),
   foodInasal: img(foodInasal, "Grilled chicken plate from the clubhouse kitchen", "2020/08/AIYANAR210171.jpg"),
   anilaoBancas: img(anilaoBancas, "Bancas on calm water at dusk in Anilao", "2020/06/banner-anilao.jpg"),
-} satisfies Record<string, LibraryImage>;
+} satisfies Record<ImageKey, LibraryImage>;
 
-export type ImageKey = keyof typeof images;
+export type { ImageKey };
