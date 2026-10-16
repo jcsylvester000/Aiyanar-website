@@ -5,7 +5,7 @@ test("home renders the promise, one H1 and a working booking link", async ({ pag
   expect(res?.status()).toBe(200);
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("h1")).toHaveText("Dive Deep. Stay Golden.");
-  const book = page.getByRole("link", { name: "Check availability" });
+  const book = page.getByRole("link", { name: "Check availability" }).first();
   await expect(book).toHaveAttribute("href", /^https:\/\/www\.aiyanarreservations\.com\/en\/reservation/);
 });
 

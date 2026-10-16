@@ -142,4 +142,9 @@ export function liveOffers(today = new Date().toISOString().slice(0, 10)) {
   return offers.filter((o) => o.validFrom <= today && today <= o.validTo);
 }
 
+/** Offers on sale now or starting later (not yet expired), soonest first: for listings, so a season launch never empties the page. */
+export function currentAndUpcomingOffers(today = new Date().toISOString().slice(0, 10)) {
+  return offers.filter((o) => today <= o.validTo).sort((a, b) => a.validFrom.localeCompare(b.validFrom));
+}
+
 export const offersForRoom = (roomSlug: string) => (roomBySlug(roomSlug) ? liveOffers().filter((o) => o.rooms.includes(roomSlug)) : []);
