@@ -1,3 +1,5 @@
+import { currentAndUpcomingOffers } from "@/content/offers";
+
 /**
  * Every indexable route with its last meaningful content change (sitemap lastmod).
  * Pages are added here as each batch ships (Pages tab of the build plan). /styleguide and 404 are excluded.
@@ -24,6 +26,18 @@ export const staticRoutes: RouteEntry[] = [
   { path: "/learn/kids-and-teens/", lastModified: "2026-10-16", priority: 0.6 },
 ];
 
+const exp = ["water-sports", "island-hopping-sunset-ride", "beyond-the-shore", "spa-and-cabanas", "events-and-weddings", "corporate"];
+staticRoutes.push(
+  { path: "/experiences/", lastModified: "2026-10-16", priority: 0.8 },
+  ...exp.map((s) => ({ path: `/experiences/${s}/`, lastModified: "2026-10-16", priority: 0.6 })),
+  { path: "/offers/", lastModified: "2026-10-16", priority: 0.8 },
+);
+
+/** Offer pages come and go with their dates (FR-O1): only offers not yet expired are listed. */
+function offerRoutes(today = new Date().toISOString().slice(0, 10)): RouteEntry[] {
+  return currentAndUpcomingOffers(today).map((o) => ({ path: `/offers/${o.slug}/`, lastModified: "2026-10-16", priority: 0.7 }));
+}
+
 export function allRoutes(): RouteEntry[] {
-  return [...staticRoutes];
+  return [...staticRoutes, ...offerRoutes()];
 }

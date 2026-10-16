@@ -76,7 +76,7 @@ export const experiences: Experience[] = uniqueSlugs(
       summary: "A team dive day in the pool, offsites with a view, and year-end parties by the sea.",
       options: ["Team dive day", "Offsite", "Year-end party"].map(opt),
       goodToKnow: ["24 rooms across Suites, Deluxe and Casitas for overnight groups"],
-      image: "aerialPool",
+      image: "aerialTrainingPool",
       verify: { source: "BRD 1.3 corporate segment", confirmed: false, note: "Formats, capacity and pricing" },
     },
   ]),

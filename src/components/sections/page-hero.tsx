@@ -25,7 +25,7 @@ export function PageHero({
   return (
     <section aria-labelledby="page-title" className="relative isolate flex min-h-[62svh] items-end overflow-hidden bg-navy text-white lg:min-h-[68svh]">
       <Image src={img.src} alt={img.alt} fill priority fetchPriority="high" placeholder="blur" sizes="100vw" className="-z-10 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/50 to-navy/25" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/60 to-navy/40" aria-hidden />
       <div className="container-site pb-12 pt-32 lg:pb-16">
         <Breadcrumbs items={crumbs} onDark className="mb-5" />
         <p className="eyebrow text-gold">{eyebrow}</p>
