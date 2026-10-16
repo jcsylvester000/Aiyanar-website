@@ -29,6 +29,12 @@ const meta: Record<string, string> = {
 };
 
 /** Related offers by experience (BRD 1.3 segment → offer). */
+/** Journey links shown under the contact block (BRD §1.4 J6 corporate, J7 weddings). */
+const planLinks: Record<string, { label: string; href: string }[]> = {
+  corporate: [{ label: "Fact sheet & media kit", href: "/agents/" }, { label: "Resort facts", href: "/resort-facts/" }, { label: "Rooms", href: "/stay/" }],
+  "events-and-weddings": [{ label: "Dining & sunset bar", href: "/stay/dining/" }, { label: "Rooms for your guests", href: "/stay/" }, { label: "Resort facts", href: "/resort-facts/" }],
+};
+
 const offerFor: Record<string, string[]> = {
   "spa-and-cabanas": ["dive-or-dont", "golden-hour-weekend"],
   "island-hopping-sunset-ride": ["golden-hour-weekend"],
@@ -101,6 +107,13 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
             intro={isEvent ? "Call, email or message our team with your date, group size and what you have in mind." : "Planning ahead, or want to check what’s running on your dates? Get in touch."}
           />
           <ContactBlock onDark subject={isEvent ? `${e.name} enquiry` : undefined} />
+          {planLinks[e.slug] ? (
+            <nav aria-label="Planning links" className="lg:col-span-2">
+              <ul className="flex flex-wrap gap-3">
+                {planLinks[e.slug].map((l) => <li key={l.href}><Link href={l.href} className="btn btn-ghost">{l.label}</Link></li>)}
+              </ul>
+            </nav>
+          ) : null}
         </div>
       </section>
 

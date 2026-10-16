@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "@/content/site";
 import { diveSites } from "@/content/dive";
 import { factById } from "@/content/facts";
 import { pageMetadata } from "@/lib/seo";
@@ -51,6 +52,9 @@ export default function SitesPage() {
           <div className="mt-12 flex flex-wrap gap-3">
             <Link href="/dive/packages/" className="btn btn-primary">See dive packages</Link>
             <Link href="/anilao/marine-life/" className="btn btn-secondary">What you’ll see</Link>
+            <a href={site.messengerUrl} rel="noopener" target="_blank" className="btn btn-secondary" data-event="contact_click" data-channel="messenger">
+              Ask about a site<span className="sr-only"> on Messenger (opens in a new tab)</span>
+            </a>
           </div>
         </div>
       </section>

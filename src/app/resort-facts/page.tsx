@@ -73,6 +73,7 @@ export default function ResortFactsPage() {
                   </table>
                 </div>
               ) : null}
+              {g === "Rooms" ? <Link href="/stay/#compare" className="btn btn-secondary mt-4">Compare rooms</Link> : null}
             </section>
           ))}
         </div>

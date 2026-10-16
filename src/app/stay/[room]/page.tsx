@@ -143,6 +143,15 @@ export default async function RoomPage({ params }: { params: Promise<{ room: str
           <ul className="mt-10 grid gap-6 sm:grid-cols-2">
             {others.map((r) => <li key={r.slug} className="flex"><RoomCard room={r} /></li>)}
           </ul>
+          <nav aria-label="Around your stay" className="mt-12">
+            <p className="eyebrow text-gold-ink">Around your stay</p>
+            <ul className="mt-4 flex flex-wrap gap-3">
+              <li><Link href="/stay/facilities/" className="btn btn-secondary">Pools &amp; facilities</Link></li>
+              <li><Link href="/stay/dining/" className="btn btn-secondary">Dining &amp; sunset bar</Link></li>
+              <li><Link href="/experiences/spa-and-cabanas/" className="btn btn-secondary">Spa &amp; cabanas</Link></li>
+              <li><Link href="/faq/" className="btn btn-secondary">FAQ</Link></li>
+            </ul>
+          </nav>
         </div>
       </section>
 

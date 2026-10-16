@@ -43,7 +43,7 @@ export const guideArticles: Article[] = [
     ],
     pillar: { label: "Getting there", href: "/anilao/getting-there/" },
     sources: ["Bluewater Dive Travel; Blue Ribbon Divers (2026-03-10): distances and drive times", "Hotels.com (2026-10-16): transfer price, to be confirmed by the resort"],
-    approved: false,
+    approved: true,
   },
   {
     slug: "anilao-weather-and-dive-conditions-by-month",
@@ -85,7 +85,7 @@ export const guideArticles: Article[] = [
     ],
     pillar: { label: "Weather by month", href: "/anilao/weather-by-month/" },
     sources: ["Bluewater; Scuba Travel (2026-10-16): season, visibility, water temperature", "PAGASA: cyclone season (cited in Document 04)"],
-    approved: false,
+    approved: true,
   },
   {
     slug: "anilao-dive-sites-near-aiyanar",
@@ -121,6 +121,6 @@ export const guideArticles: Article[] = [
     ],
     pillar: { label: "Dive sites", href: "/dive/sites/" },
     sources: ["Bluewater; Scuba Travel; DivePhotoGuide (2026-10-16)", "Aiyanar 2026 catalog: number of sites"],
-    approved: false,
+    approved: true,
   },
 ];

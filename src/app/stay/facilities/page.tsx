@@ -98,6 +98,7 @@ export default function FacilitiesPage() {
             <Link href="/stay/dining/" className="btn btn-secondary">Dining &amp; sunset bar</Link>
             <Link href="/experiences/" className="btn btn-secondary">Things to do</Link>
             <Link href="/dive/dive-centre/" className="btn btn-secondary">The dive centre</Link>
+            <Link href="/faq/" className="btn btn-secondary">FAQ</Link>
           </div>
         </div>
       </section>

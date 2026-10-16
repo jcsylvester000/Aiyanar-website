@@ -5,6 +5,7 @@ import { Breadcrumbs, type Crumb } from "@/components/layout/breadcrumbs";
 /**
  * Inner-page photo hero (dark, full-bleed). The route must be listed in navigation.heroRoutes so the header
  * starts transparent over it. The hero image is the page's LCP: eager + high priority.
+ * Mobile floor of 40rem keeps the hero taller than its content, so a font swap cannot change its height (CLS).
  */
 export function PageHero({
   image,
@@ -23,8 +24,8 @@ export function PageHero({
 }) {
   const img = images[image];
   return (
-    <section aria-labelledby="page-title" className="relative isolate flex min-h-[62svh] items-end overflow-hidden bg-navy text-white lg:min-h-[68svh]">
-      <Image src={img.src} alt={img.alt} fill priority fetchPriority="high" placeholder="blur" sizes="100vw" className="-z-10 object-cover" />
+    <section aria-labelledby="page-title" className="relative isolate flex min-h-[max(62svh,40rem)] items-end overflow-hidden bg-navy text-white lg:min-h-[68svh]">
+      <Image src={img.src} alt={img.alt} fill priority fetchPriority="high" sizes="100vw" className="-z-10 object-cover" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/60 to-navy/40" aria-hidden />
       <div className="container-site pb-12 pt-32 lg:pb-16">
         <Breadcrumbs items={crumbs} onDark className="mb-5" />

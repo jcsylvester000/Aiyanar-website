@@ -14,6 +14,11 @@ import { gallery } from "./gallery";
 import { faqs } from "./faqs";
 import { imageKeys } from "./image-keys";
 import type { Verify } from "./schema";
+import { SiteSchema } from "./site-schema";
+import { site } from "./site";
+
+// site.ts is plain data (client-safe); validate it here so the build fails on a bad phone, URL or email.
+SiteSchema.parse(site);
 
 export { facts, facilities, rooms, offers, courses, divePackages, diveSites, experiences, people, press, conservation, reviews, gallery, faqs };
 

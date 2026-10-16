@@ -75,7 +75,6 @@ export default function HomePage() {
           fill
           priority
           fetchPriority="high"
-          placeholder="blur"
           sizes="100vw"
           className="-z-10 object-cover"
         />

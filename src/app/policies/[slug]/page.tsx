@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const p = policyBySlug((await params).slug);
   if (!p) return {};
-  return pageMetadata({ title: p.title, description: p.summary, path: `/policies/${p.slug}/` });
+  return pageMetadata({ title: p.title, description: `${p.summary} Aiyanar Beach & Dive Resort, Anilao, Batangas.`, path: `/policies/${p.slug}/` });
 }
 
 /** P49 policy template. Shows a draft note until the policy is reviewed (launch gate). */

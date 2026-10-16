@@ -124,6 +124,15 @@ export default async function OfferPage({ params }: { params: Promise<{ slug: st
         </section>
       ) : null}
 
+      {offer.related.length ? (
+        <nav aria-label="Plan around this offer" className="container-site pb-4 pt-12 lg:pt-16">
+          <p className="eyebrow text-gold-ink">Plan around it</p>
+          <ul className="mt-4 flex flex-wrap gap-3">
+            {offer.related.map((r) => <li key={r.href}><Link href={r.href} className="btn btn-secondary">{r.label}</Link></li>)}
+          </ul>
+        </nav>
+      ) : null}
+
       {more.length ? (
         <section aria-labelledby="more-title" className="section-y">
           <div className="container-site">

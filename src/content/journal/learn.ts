@@ -48,7 +48,7 @@ export const learnArticles: Article[] = [
     ],
     pillar: { label: "Learn to dive at Aiyanar", href: "/learn/discover-scuba/" },
     sources: [padi],
-    approved: false,
+    approved: true,
   },
   {
     slug: "padi-open-water-anilao-weekend",
@@ -98,7 +98,7 @@ export const learnArticles: Article[] = [
     ],
     pillar: { label: "PADI Open Water at Aiyanar", href: "/learn/open-water/" },
     sources: [padi, "Blue Ribbon Divers, How to get to Anilao (2026-03-10)"],
-    approved: false,
+    approved: true,
   },
   {
     slug: "not-a-strong-swimmer-learn-to-dive",
@@ -142,7 +142,7 @@ export const learnArticles: Article[] = [
     ],
     pillar: { label: "Learn to dive at Aiyanar", href: "/learn/" },
     sources: [padi],
-    approved: false,
+    approved: true,
   },
   {
     slug: "kids-and-scuba-ages-courses-safety",
@@ -186,6 +186,6 @@ export const learnArticles: Article[] = [
     ],
     pillar: { label: "Kids & teens courses", href: "/learn/kids-and-teens/" },
     sources: [padi],
-    approved: false,
+    approved: true,
   },
 ];

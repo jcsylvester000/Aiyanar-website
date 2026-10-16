@@ -42,7 +42,7 @@ export const moreArticles: Article[] = [
     ],
     pillar: { label: "For photographers", href: "/dive/photographers/" },
     sources: [`aiyanar.com/dive; Bluewater (2020-08-27); ${cat}`],
-    approved: false,
+    approved: true,
   },
   {
     slug: "anilao-nudibranchs-what-to-look-for",
@@ -84,7 +84,7 @@ export const moreArticles: Article[] = [
     ],
     pillar: { label: "Anilao marine life", href: "/anilao/marine-life/" },
     sources: ["Dive The World, Anilao (species count)", "Bluewater; Scuba Travel (season)"],
-    approved: false,
+    approved: true,
   },
   {
     slug: "dive-or-dont-couples-weekend",
@@ -123,7 +123,7 @@ export const moreArticles: Article[] = [
     ],
     pillar: { label: "Experiences for non-divers", href: "/experiences/" },
     sources: ["Lifestyle.INQ (2022-10-27): about half of guests don’t dive", cat],
-    approved: false,
+    approved: true,
   },
   {
     slug: "what-full-board-means-at-a-dive-resort",
@@ -163,7 +163,7 @@ export const moreArticles: Article[] = [
     ],
     pillar: { label: "Dining & Sundeck Bar", href: "/stay/dining/" },
     sources: ["aiyanarreservations.com rate inclusions (2026-10-16)", "Bluewater package inclusions (2026-10-16)"],
-    approved: false,
+    approved: true,
   },
   {
     slug: "whats-included-in-an-aiyanar-dive-package",
@@ -201,6 +201,6 @@ export const moreArticles: Article[] = [
     ],
     pillar: { label: "Dive packages", href: "/dive/packages/" },
     sources: ["Bluewater special packages (travel 2026-04-01 to 2027-11-30)", cat],
-    approved: false,
+    approved: true,
   },
 ];
