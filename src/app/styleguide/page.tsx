@@ -2,11 +2,13 @@ import Image from "next/image";
 import { images } from "@/content/images";
 import { pageMetadata } from "@/lib/seo";
 import { bookingUrl } from "@/lib/booking";
+import { BookingSearch } from "@/components/booking/booking-search";
+import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export const metadata = pageMetadata({
   title: "Styleguide",
   description: "Internal design tokens and image library for the Aiyanar website build.",
-  path: "/styleguide",
+  path: "/styleguide/",
   noindex: true,
 });
 
@@ -28,7 +30,8 @@ export default function StyleguidePage() {
   return (
     <div className="container-site section-y space-y-16">
       <header>
-        <p className="eyebrow text-gold-ink">Internal · B0</p>
+        <Breadcrumbs items={[{ name: "Styleguide", path: "/styleguide/" }]} className="mb-6" />
+        <p className="eyebrow text-gold-ink">Internal · B1</p>
         <h1 className="mt-2 text-[length:var(--text-h1)]">Styleguide</h1>
       </header>
 
@@ -70,6 +73,16 @@ export default function StyleguidePage() {
         <div className="flex flex-wrap gap-3 rounded-[var(--radius-card)] bg-navy p-6">
           <a className="btn btn-primary" href="#sg-buttons">Primary on navy</a>
           <a className="btn btn-ghost" href="#sg-buttons">Ghost on photo</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="sg-booking" className="space-y-6">
+        <h2 id="sg-booking" className="text-[length:var(--text-h2)]">Booking search (FR-G2)</h2>
+        <div className="rounded-[var(--radius-card)] border border-line bg-white p-5">
+          <BookingSearch layout="bar" />
+        </div>
+        <div className="max-w-sm rounded-[var(--radius-card)] bg-navy p-5">
+          <BookingSearch layout="stack" tone="dark" />
         </div>
       </section>
 

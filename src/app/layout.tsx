@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { playfair, poppins } from "./fonts";
-import { allowIndexing, siteUrl } from "@/lib/env";
+import { allowIndexing, gtmId, siteUrl } from "@/lib/env";
 import { site } from "@/content/site";
 import { JsonLd, resortLd, websiteLd } from "@/lib/jsonld";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { FloatingContact } from "@/components/layout/floating-contact";
+import { ConsentManager } from "@/components/consent/consent-manager";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,15 +25,23 @@ export const viewport: Viewport = {
 };
 
 /**
- * Root layout. B1 adds the header (menu + Book Now), sticky booking bar, floating contact, footer and consent banner.
+ * Root layout: skip link, header (menu, Book Now, docked booking bar), page, footer, floating contact and,
+ * once a GTM container is configured, the consent banner (FR-G1 to FR-G5).
  */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-PH" suppressHydrationWarning className={`${playfair.variable} ${poppins.variable}`}>
-      <body suppressHydrationWarning className="flex min-h-dvh flex-col antialiased">
-        <main id="main" className="flex-1">
+      <body suppressHydrationWarning className="flex min-h-dvh flex-col pb-[72px] antialiased lg:pb-0">
+        <a href="#main" className="sr-only z-50 rounded-[var(--radius-btn)] bg-navy px-4 py-3 text-white focus:not-sr-only focus:fixed focus:left-3 focus:top-3">
+          Skip to content
+        </a>
+        <SiteHeader />
+        <main id="main" tabIndex={-1} className="flex-1 outline-none">
           {children}
         </main>
+        <SiteFooter />
+        <FloatingContact />
+        {gtmId ? <ConsentManager gtmId={gtmId} /> : null}
         <JsonLd data={[resortLd(), websiteLd()]} />
       </body>
     </html>

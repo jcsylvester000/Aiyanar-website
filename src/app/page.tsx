@@ -28,8 +28,7 @@ export default function HomePage() {
         className="-z-10 object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy/90 via-navy/40 to-navy/10" aria-hidden />
-      <div className="container-site pb-16 pt-32 md:pb-24">
-        <Image src="/brand/logo-white.png" alt={site.name} width={220} height={125} className="mb-10 h-auto w-44 md:w-56" />
+      <div className="container-site pb-16 pt-40 md:pb-24">
         <p className="eyebrow text-gold">{site.descriptor} · PADI 5 Star</p>
         <h1 className="mt-3 max-w-3xl text-[length:var(--text-display)] text-white">{site.promise}</h1>
         <p className="mt-5 max-w-xl text-lead text-white/90">
