@@ -77,6 +77,8 @@ unconfirmed += Math.max(0, siteCalls - 1);
 /* ---------- 4b. Policies awaiting legal review (reported; launch gate) ---------- */
 const legalTs = readFileSync(join(SRC, "content/legal.ts"), "utf8");
 const unreviewed = (legalTs.match(/reviewed:\s*false/g) || []).length;
+const journalDir = join(SRC, "content/journal");
+const draftArticles = readdirSync(journalDir).filter((f) => f.endsWith(".ts")).reduce((n, f) => n + (readFileSync(join(journalDir, f), "utf8").match(/approved:\s*false/g) || []).length, 0);
 
 /* ---------- 5. Placeholder images ---------- */
 const imagesTs = readFileSync(join(SRC, "content/images.ts"), "utf8");
@@ -88,8 +90,8 @@ if (errors.length) {
   console.error(`\n✖ Content guard failed (${errors.length}):\n  ` + errors.join("\n  ") + "\n");
   process.exit(1);
 }
-console.log(`✔ Content guard passed. leadCapture=${leadCapture} · placeholder images: ${placeholders} of ${total} · facts to confirm: ${unconfirmed > 0 ? "yes" : "none"} (full list: /styleguide/content/) · policies awaiting legal review: ${unreviewed}`);
-if (process.env.REQUIRE_FINAL_ASSETS === "true" && (placeholders > 0 || unconfirmed > 0 || unreviewed > 0)) {
-  console.error(`✖ REQUIRE_FINAL_ASSETS=true but ${placeholders} placeholder image(s), unconfirmed facts and/or ${unreviewed} unreviewed policies remain (see /styleguide/content/).`);
+console.log(`✔ Content guard passed. leadCapture=${leadCapture} · placeholder images: ${placeholders} of ${total} · facts to confirm: ${unconfirmed > 0 ? "yes" : "none"} (full list: /styleguide/content/) · policies awaiting legal review: ${unreviewed} · journal drafts awaiting approval: ${draftArticles}`);
+if (process.env.REQUIRE_FINAL_ASSETS === "true" && (placeholders > 0 || unconfirmed > 0 || unreviewed > 0 || draftArticles > 0)) {
+  console.error(`✖ REQUIRE_FINAL_ASSETS=true but ${placeholders} placeholder image(s), unconfirmed facts ${unreviewed} unreviewed policies and/or ${draftArticles} unapproved articles remain (see /styleguide/content/).`);
   process.exit(1);
 }

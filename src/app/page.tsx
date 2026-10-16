@@ -15,6 +15,8 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { RoomCard } from "@/components/sections/room-card";
 import { OfferCard } from "@/components/sections/offer-card";
 import { Icon } from "@/components/ui/icon";
+import { ArticleCard } from "@/components/sections/article-card";
+import { articles } from "@/content/journal";
 
 export const metadata = pageMetadata({
   title: `${site.name} | ${site.descriptor} in Anilao, Batangas`,
@@ -54,17 +56,13 @@ const journeys: { key: string; title: string; text: string; href: string; cta: s
   },
 ];
 
-const guides = [
-  { title: "Getting to Anilao", text: "Routes from NAIA, Makati and BGC, drive times and private transfers.", href: "/anilao/getting-there/", image: "anilaoBancas" as ImageKey },
-  { title: "Anilao by month", text: "Water temperature, visibility and the best months for divers and non-divers.", href: "/anilao/weather-by-month/", image: "poolSunset" as ImageKey },
-  { title: "Anilao’s marine life", text: "Nudibranchs, frogfish, pygmy seahorses: what you’ll see, and when.", href: "/anilao/marine-life/", image: "macroTriptych" as ImageKey },
-];
 
 export default function HomePage() {
   const today = new Date().toISOString().slice(0, 10);
   const offers = currentAndUpcomingOffers(today).slice(0, 4);
   const award = press.find((p) => p.kind === "award");
   const asOf = site.ratings[0]?.asOf;
+  const latest = articles.slice(0, 3);
   const strip = gallery.filter((g) => g.category !== "rooms").slice(0, 6);
 
   return (
@@ -346,28 +344,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11 · Journal / plan your trip */}
+      {/* 11 · Journal */}
       <section aria-labelledby="guides-title" className="section-y bg-cream">
         <div className="container-site">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading id="guides-title" eyebrow="Plan your trip" title="Know Anilao before you go" />
-            <Link href="/anilao/" className="btn btn-secondary shrink-0">Anilao guide</Link>
+            <SectionHeading id="guides-title" eyebrow="Journal" title="Know Anilao before you go" />
+            <Link href="/journal/" className="btn btn-secondary shrink-0">All articles</Link>
           </div>
-          <ul className="mt-10 grid gap-6 md:grid-cols-3">
-            {guides.map((g) => {
-              const img = images[g.image];
-              return (
-                <li key={g.href} className="reveal group relative">
-                  <div className="relative aspect-[3/2] overflow-hidden rounded-[var(--radius-card)]">
-                    <Image src={img.src} alt="" fill placeholder="blur" sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
-                  </div>
-                  <h3 className="mt-4 text-[length:var(--text-h4)]">
-                    <Link href={g.href} className="after:absolute after:inset-0 focus-visible:outline-none">{g.title}</Link>
-                  </h3>
-                  <p className="mt-1 text-[15px]">{g.text}</p>
-                </li>
-              );
-            })}
+          <ul className="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-3">
+            {latest.map((a) => (
+              <li key={a.slug} className="reveal"><ArticleCard article={a} /></li>
+            ))}
           </ul>
         </div>
       </section>

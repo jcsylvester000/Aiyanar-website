@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/sections/section-heading";
 
 export const metadata = pageMetadata({
   title: "Ocean Conservation in Anilao",
-  description: "Aiyanar and Anilao’s reefs: a visit from Dr. Sylvia Earle, a PADI Women’s Dive Day clean-up that removed 147.5 kg of debris, and Divemaster training for local scholars.",
+  description: "Aiyanar and Anilao’s reefs: Dr. Sylvia Earle’s visit, a Women’s Dive Day clean-up that removed 147.5 kg of debris, and Divemaster training for scholars.",
   path: "/about/ocean-conservation/",
 });
 

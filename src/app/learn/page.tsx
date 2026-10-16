@@ -14,7 +14,7 @@ import { OfferCard } from "@/components/sections/offer-card";
 
 export const metadata = pageMetadata({
   title: "Learn to Dive in Anilao: PADI Courses from Manila",
-  description: "Learn to dive 2.5 hours from Manila. PADI courses start in our 15-ft sea-view dive pool: Discover Scuba, Open Water, Advanced, Rescue and Divemaster at a PADI 5 Star resort.",
+  description: "Learn to dive 2.5 hours from Manila. PADI courses from Discover Scuba to Divemaster start in our 15-ft sea-view dive pool at a PADI 5 Star resort.",
   path: "/learn/",
 });
 

@@ -54,7 +54,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
  * Routes that open with a full-bleed dark photo hero: the header starts transparent with the white logo,
  * then turns solid (navy logo on sand) on scroll (BRD 2.7). Add routes here as hero pages are built.
  */
-export const heroRoutes: string[] = ["/", "/stay/*", "/dive/*", "/learn/*", "/experiences/*", "/offers/*", "/anilao/*", "/about/*", "/gallery/", "/contact/", "/faq/", "/resort-facts/", "/agents/"];
+export const heroRoutes: string[] = ["/", "/stay/*", "/dive/*", "/learn/*", "/experiences/*", "/offers/*", "/anilao/*", "/about/*", "/gallery/", "/contact/", "/faq/", "/resort-facts/", "/agents/", "/journal/*"];
 
 /** Exact match, or prefix match for entries ending in "/*". */
 export const isHeroRoute = (path: string) =>

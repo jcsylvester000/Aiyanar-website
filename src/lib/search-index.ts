@@ -5,6 +5,7 @@ import { experiences } from "@/content/experiences";
 import { faqs } from "@/content/faqs";
 import { policies } from "@/content/legal";
 import { learnPages } from "@/content/learn";
+import { articles } from "@/content/journal";
 
 /** Static site-search index (FR-G6): pages, offers, rooms, courses, experiences, FAQs. Built at build time, searched in the browser. */
 export type SearchEntry = { title: string; url: string; section: string; text: string };
@@ -33,6 +34,7 @@ const pages: SearchEntry[] = [
   { title: "Ocean conservation", url: "/about/ocean-conservation/", section: "About", text: "Sylvia Earle clean-up Pink Argonauts conservation" },
   { title: "Awards & press", url: "/about/awards-and-press/", section: "About", text: "awards press Dive Magazine PADI" },
   { title: "Guest reviews", url: "/about/reviews/", section: "About", text: "reviews ratings Google Tripadvisor" },
+  { title: "Journal", url: "/journal/", section: "Journal", text: "articles guides stories" },
   { title: "Gallery", url: "/gallery/", section: "Pages", text: "photos gallery pictures" },
   { title: "Contact", url: "/contact/", section: "Plan", text: "contact phone email Messenger address" },
   { title: "FAQ", url: "/faq/", section: "Plan", text: "questions answers" },
@@ -49,6 +51,7 @@ export function buildSearchIndex(today = new Date().toISOString().slice(0, 10)):
     ...courses.map((c) => ({ title: c.name, url: `/learn/${c.page}/#${c.slug}`, section: "Courses", text: c.summary })),
     ...experiences.map((e) => ({ title: e.name, url: `/experiences/${e.slug}/`, section: "Experiences", text: e.summary })),
     ...faqs.map((f) => ({ title: f.q, url: "/faq/", section: "FAQ", text: f.a })),
+    ...articles.map((a) => ({ title: a.title, url: `/journal/${a.slug}/`, section: "Journal", text: a.description })),
     ...policies.map((p) => ({ title: p.title, url: `/policies/${p.slug}/`, section: "Policies", text: p.summary })),
   ];
 }

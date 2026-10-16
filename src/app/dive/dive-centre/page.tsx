@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/sections/section-heading";
 
 export const metadata = pageMetadata({
   title: "The Dive Centre: Gear, Nitrox, Boats & Safety",
-  description: "Aiyanar’s PADI 5 Star dive centre: 120 sqm with rinse tubs, Bauer air and nitrox to 40%, ScubaPro and Atomic rental gear, three dive speedboats and oxygen on every boat.",
+  description: "Aiyanar’s PADI 5 Star dive centre: rinse tubs, Bauer air, nitrox to 40%, ScubaPro and Atomic rental gear, three speedboats and oxygen on every boat.",
   path: "/dive/dive-centre/",
 });
 

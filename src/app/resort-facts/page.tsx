@@ -10,7 +10,7 @@ import { PageHero } from "@/components/sections/page-hero";
 
 export const metadata = pageMetadata({
   title: "Resort Facts",
-  description: "Aiyanar Beach & Dive Resort at a glance: location, rooms and sizes, pools, PADI 5 Star dive centre, camera room, boats, season, distance from Manila and contacts.",
+  description: "Aiyanar at a glance: location, rooms and sizes, pools, PADI 5 Star dive centre, camera room, boats, dive season, distance from Manila and contacts.",
   path: "/resort-facts/",
 });
 

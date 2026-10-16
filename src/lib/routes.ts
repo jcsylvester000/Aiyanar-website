@@ -1,3 +1,4 @@
+import { articlePath, articles, categoryPath, usedCategories } from "@/content/journal";
 import { policies } from "@/content/legal";
 import { publishedPeople } from "@/content/people";
 import { currentAndUpcomingOffers } from "@/content/offers";
@@ -52,6 +53,14 @@ function offerRoutes(today = new Date().toISOString().slice(0, 10)): RouteEntry[
   return currentAndUpcomingOffers(today).map((o) => ({ path: `/offers/${o.slug}/`, lastModified: "2026-10-16", priority: 0.7 }));
 }
 
+function journalRoutes(): RouteEntry[] {
+  return [
+    { path: "/journal/", lastModified: articles[0]?.published ?? "2026-10-16", priority: 0.7 },
+    ...usedCategories().map((c) => ({ path: categoryPath(c.slug), lastModified: "2026-10-16", priority: 0.4 })),
+    ...articles.map((a) => ({ path: articlePath(a), lastModified: a.updated ?? a.published, priority: 0.6 })),
+  ];
+}
+
 export function allRoutes(): RouteEntry[] {
-  return [...staticRoutes, ...offerRoutes()];
+  return [...staticRoutes, ...offerRoutes(), ...journalRoutes()];
 }
