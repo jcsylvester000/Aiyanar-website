@@ -7,6 +7,7 @@ import { mainNav, bookNow, isHeroRoute } from "@/content/navigation";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/ui/logo";
+import { Icon } from "@/components/ui/icon";
 import { BookingSearch } from "@/components/booking/booking-search";
 import { MobileMenu } from "./mobile-menu";
 
@@ -74,6 +75,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <Link href="/search/" aria-label="Search" className={cn("grid size-11 place-items-center", onDark ? "text-white" : "text-navy")}>
+            <Icon name="search" className="size-5" />
+          </Link>
           <Link href={bookNow.href} className="btn btn-primary hidden px-5 sm:inline-flex">
             {bookNow.label}
           </Link>

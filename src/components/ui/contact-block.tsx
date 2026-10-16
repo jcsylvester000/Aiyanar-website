@@ -20,7 +20,7 @@ export function ContactBlock({ subject, email = site.emails.info, onDark, classN
           </a>
         </li>
       ))}
-      <li>
+      <li className="sm:col-span-2">
         <a href={mail} className={item} data-event="contact_click" data-channel="email">
           <Icon name="mail" className={iconCls} />
           <span className="break-all">{email}</span>

@@ -1,3 +1,4 @@
+import { policies } from "@/content/legal";
 import { publishedPeople } from "@/content/people";
 import { currentAndUpcomingOffers } from "@/content/offers";
 
@@ -35,6 +36,12 @@ staticRoutes.push(
   ...["/anilao/", "/anilao/getting-there/", "/anilao/weather-by-month/", "/anilao/marine-life/"].map((p, i) => ({ path: p, lastModified: "2026-10-16", priority: i ? 0.7 : 0.8 })),
   ...["/about/", "/about/our-story/", "/about/team/", "/about/ocean-conservation/", "/about/awards-and-press/", "/about/reviews/"].map((p) => ({ path: p, lastModified: "2026-10-16", priority: 0.6 })),
   { path: "/gallery/", lastModified: "2026-10-16", priority: 0.6 },
+  { path: "/contact/", lastModified: "2026-10-16", priority: 0.8 },
+  { path: "/faq/", lastModified: "2026-10-16", priority: 0.7 },
+  { path: "/resort-facts/", lastModified: "2026-10-16", priority: 0.6 },
+  { path: "/agents/", lastModified: "2026-10-16", priority: 0.4 },
+  { path: "/policies/", lastModified: "2026-10-16", priority: 0.3 },
+  ...policies.map((p) => ({ path: `/policies/${p.slug}/`, lastModified: p.updated, priority: 0.2 })),
 );
 
 /** Friends of Aiyanar joins the sitemap only once someone has consented to be named. */

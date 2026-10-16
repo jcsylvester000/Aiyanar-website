@@ -74,6 +74,10 @@ for (const f of files.filter((x) => x.startsWith(contentDir))) unconfirmed += (r
 const siteCalls = (readFileSync(join(contentDir, "dive.ts"), "utf8").match(/^\s+site\("/gm) || []).length;
 unconfirmed += Math.max(0, siteCalls - 1);
 
+/* ---------- 4b. Policies awaiting legal review (reported; launch gate) ---------- */
+const legalTs = readFileSync(join(SRC, "content/legal.ts"), "utf8");
+const unreviewed = (legalTs.match(/reviewed:\s*false/g) || []).length;
+
 /* ---------- 5. Placeholder images ---------- */
 const imagesTs = readFileSync(join(SRC, "content/images.ts"), "utf8");
 const total = (imagesTs.match(/^\s+\w+: img\(/gm) || []).length;
@@ -84,8 +88,8 @@ if (errors.length) {
   console.error(`\n✖ Content guard failed (${errors.length}):\n  ` + errors.join("\n  ") + "\n");
   process.exit(1);
 }
-console.log(`✔ Content guard passed. leadCapture=${leadCapture} · placeholder images: ${placeholders} of ${total} · facts to confirm: ${unconfirmed > 0 ? "yes" : "none"} (full list: /styleguide/content/)`);
-if (process.env.REQUIRE_FINAL_ASSETS === "true" && (placeholders > 0 || unconfirmed > 0)) {
-  console.error(`✖ REQUIRE_FINAL_ASSETS=true but ${placeholders} placeholder image(s) remain and/or facts are unconfirmed (see /styleguide/content/).`);
+console.log(`✔ Content guard passed. leadCapture=${leadCapture} · placeholder images: ${placeholders} of ${total} · facts to confirm: ${unconfirmed > 0 ? "yes" : "none"} (full list: /styleguide/content/) · policies awaiting legal review: ${unreviewed}`);
+if (process.env.REQUIRE_FINAL_ASSETS === "true" && (placeholders > 0 || unconfirmed > 0 || unreviewed > 0)) {
+  console.error(`✖ REQUIRE_FINAL_ASSETS=true but ${placeholders} placeholder image(s), unconfirmed facts and/or ${unreviewed} unreviewed policies remain (see /styleguide/content/).`);
   process.exit(1);
 }
